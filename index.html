@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aridos Los Quillalles</title>
+    <style>
+        /* Estilos CSS básicos */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #2d3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            margin: 0;
+        }
+        nav {
+            background-color: #34495e;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+        }
+        nav a:hover {
+            color: #f39c12;
+        }
+        section {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .image-gallery {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .image-gallery img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 8px;
+        }
+        footer {
+            background-color: #2d3e50;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+        form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 20px auto;
+        }
+        input, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #2d3e50;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #34495e;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Aridos Los Quillalles</h1>
+    <p>Venta de arena de alta calidad en Los Angeles, Chile</p>
+</header>
+
+<nav>
+    <a href="#">Inicio</a>
+    <a href="#about">Sobre Nosotros</a>
+    <a href="#contact">Contacto</a>
+</nav>
+
+<section id="about">
+    <h2>¿Quiénes Somos?</h2>
+    <p>Aridos Los Quillalles es una empresa dedicada a la venta de arena para construcción, jardinería y más. Ofrecemos productos de calidad y un servicio eficiente en Los Angeles, Chile. Trabajamos con camiones y maquinaria pesada para garantizar entregas puntuales y seguras.</p>
+
+    <h3>Galería de Imágenes</h3>
+    <div class="image-gallery">
+        <img src="camion1.png" alt="Camión transportando arena">
+        <img src="camion2.png" alt="Camión cargando arena">
+        <img src=" maquinaria1.png" alt="Maquinaria trabajando en el pozo">
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Formulario de Contacto</h2>
+    <form id="contact-form">
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="subject">Asunto:</label>
+        <input type="text" id="subject" name="subject" required placeholder="Escribe un asunto aquí">
+
+        <label for="message">Mensaje:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="button" onclick="sendEmail()">Enviar</button>
+    </form>
+</section>
+
+<footer>
+    <p>&copy; 2025 Aridos Los Quillalles - Todos los derechos reservados</p>
+</footer>
+
+<script>
+    function sendEmail() {
+        // Recoger los datos del formulario
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value;
+
+        // Modificar el asunto para agregar la palabra "Arena"
+        const fullSubject = `[Arena] ${subject}`;
+
+        // Crear el enlace de envío de correo
+        const mailtoLink = `mailto:juanma.q@gmail.com?subject=${encodeURIComponent(fullSubject)}&body=${encodeURIComponent('Nombre: ' + name + '\nCorreo: ' + email + '\n\n' + message)}`;
+
+        // Redirigir al usuario para abrir su cliente de correo
+        window.location.href = mailtoLink;
+    }
+</script>
+
+</body>
+</html>
